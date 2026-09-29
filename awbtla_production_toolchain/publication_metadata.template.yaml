@@ -1,0 +1,17 @@
+# Publication metadata for the authorized production build. Every [BRACKETED] value is a placeholder;
+# an authorized build refuses to run while any required value is a placeholder.
+title: A World Brought to Light Again
+author: Justin Andre Lamoureux
+edition: First Edition
+copyright_year: "[YEAR OF FIRST PUBLICATION]"
+publication_date: "[YYYY-MM-DD]"
+publisher_display: "[IMPRINT LINE SET BY VERIFIED ISBN STATUS]"
+paperback_isbn: "[PAPERBACK ISBN]"
+hardcover_isbn: "[HARDCOVER ISBN]"
+ebook_isbn:            # optional; KDP assigns an ASIN when blank
+language: en-US
+paperback_price:       # optional; set under the pricing formula after pagination
+hardcover_price:
+ebook_price:
+cover_source_filename: # optional; the recovered adopted cover (not used by the interior build)
+cover_credit:

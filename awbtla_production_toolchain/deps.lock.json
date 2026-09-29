@@ -1,0 +1,36 @@
+{
+  "source_serif_4": {
+    "version": "4.005R",
+    "license": "SIL Open Font License 1.1",
+    "url": "https://github.com/adobe-fonts/source-serif/releases/download/4.005R/source-serif-4.005_Desktop.zip",
+    "sha256": "549fdb8f9a682bd06944298621404969f6de77c2e422ff3b8244a1dcd6a0c425",
+    "files": {
+      "SourceSerif4-Regular.otf": "edf160d0d584deee8a3bb2c3371b2a7624ca63580fbe02c57c1f4c91e84d8787",
+      "SourceSerif4-It.otf": "f8062257f4693e438a8e317c9fe2b4393f0d4eed84d897edcbfd733c30a1c1a1",
+      "SourceSerif4-Bold.otf": "f5fb9a7b1611353fdfebcf8b1e46c7d9108470f25999b841816d8b643b1856ff",
+      "SourceSerif4-BoldIt.otf": "ebb5394e1e11e09480619c9bb10f020aded9530833edcbdb735a4702ae6fa09e",
+      "SourceSerif4-Semibold.otf": "25e034392847d9965c92f98971b3646436b7ab919ece9118b0c0e5ec94c02efc",
+      "SourceSerif4SmText-Regular.otf": "760327b0f9ef55310f11ed5c955693f4841f9b859407e98570d3654422a34d70",
+      "SourceSerif4SmText-It.otf": "220a0bf6d2a0c3fde644db2b2b602e725170ac1a90b0ce79994b7598c12980d1",
+      "SourceSerif4SmText-Bold.otf": "05f4aa92fb137675226b318335d7c44d2da86b7650bbf9b8fdf428a74139d3b5",
+      "SourceSerif4SmText-BoldIt.otf": "86679db08387aca6a7342c5f68f58e930c7d00d71a8ab1f07eb2b72fbc56b4c1",
+      "SourceSerif4Display-Regular.otf": "0525aba71e1d7293d3ef645f5a9b56101432d1f6c676cba388f800523c7b2111",
+      "SourceSerif4Display-It.otf": "653bba042213020d624a147c55d84662b3c20c1e12355bc691ae53c7051785ca",
+      "SourceSerif4Display-Semibold.otf": "0f2b3699c57dd032db8c8d93b34f7dac72e60fa2638d209aa2e428dfb6eb6400",
+      "SourceSerif4Display-Bold.otf": "c222fe7c8c0a715512c8e5aac26918c8cf3d8ba4a561cc2e5b2e76e49b988d03"
+    }
+  },
+  "stix_two_math": {
+    "version": "2.13",
+    "license": "SIL Open Font License 1.1",
+    "url": "https://raw.githubusercontent.com/stipub/stixfonts/v2.13/fonts/static_otf/STIXTwoMath-Regular.otf",
+    "files": {"STIXTwoMath-Regular.otf": "f2076b9f1676438439dd41e23676f5ab99056e83d6b8f8c27841591ef2ccfa72"}
+  },
+  "epubcheck": {
+    "version": "5.1.0",
+    "license": "BSD-3-Clause",
+    "url": "https://github.com/w3c/epubcheck/releases/download/v5.1.0/epubcheck-5.1.0.zip",
+    "sha256": "74a59af8602bf59b1d04266a450d9cdcb5986e36d825adc403cde0d95e88c9e8"
+  },
+  "tested_toolchain": {"pandoc": "3.1.3", "luatex": "LuaHBTeX 1.17.0 (TeX Live 2023)", "java": "OpenJDK 21", "poppler": "pdftotext / pdffonts", "python": "3.12 with PyYAML and pypdf"}
+}

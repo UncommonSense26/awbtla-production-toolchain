@@ -1,0 +1,29 @@
+# Synthetic-test configuration: same print parameters as production_config.yaml; running heads for the fixture.
+title: A World Brought to Light Again
+author: Justin Andre Lamoureux
+edition: First Edition
+expected_note_count: null
+required_models: [TM-01]
+formula_break_chars: 60
+print:
+  geometry: {trim_w: 7, trim_h: 10, inner: 0.875, outer: 0.625, top: 0.75, bottom: 0.75}
+  levels:
+    0: {body: [10.75, 14], notes: [8.75, 11.25]}
+    1: {body: [10.5, 13.75], notes: [8.5, 11]}
+    2: {body: [10.5, 13.75], notes: [8.5, 11], geometry: {outer: 0.5, top: 0.7, bottom: 0.7}}
+  model_text: [10, 13]
+  page_limits: {first: 540, second: 548, hard_max: 550}
+running_heads:
+  parts:
+    I: "Part I: Synthetic Part One"
+    II: "Part II: Synthetic Part Two"
+  prologue_recto: "Synthetic Prologue Title"
+  introduction_recto: "Synthetic Introduction Title"
+  constitution_verso: "Constitution of the World Peoples Union"
+  fixed: ["Legal Notice", "Preface", "Prologue", "Introduction", "Synthetic Prologue Title", "Synthetic Introduction Title", "Constitution of the World Peoples Union", "People’s Petition", "People's Petition", "Index of Formal Models", "Endnotes"]
+  chapters:
+    1: "Chapter 1: A Long Synthetic Heading"
+    2: "Chapter 2: Second Synthetic Chapter"
+expected_chapter_titles:
+    1: "A DELIBERATELY LONG SYNTHETIC CHAPTER HEADING THAT MUST WRAP ACROSS LINES WITHOUT HYPHENATION"
+    2: "SECOND SYNTHETIC CHAPTER"

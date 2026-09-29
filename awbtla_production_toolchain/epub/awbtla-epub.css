@@ -1,0 +1,19 @@
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: normal; src: url("../fonts/SourceSerif4-Regular.otf"); }
+@font-face { font-family: "Source Serif 4"; font-style: italic; font-weight: normal; src: url("../fonts/SourceSerif4-It.otf"); }
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: bold; src: url("../fonts/SourceSerif4-Bold.otf"); }
+@font-face { font-family: "Source Serif 4"; font-style: italic; font-weight: bold; src: url("../fonts/SourceSerif4-BoldIt.otf"); }
+body { font-family: "Source Serif 4", serif; line-height: 1.4; }
+p { margin: 0; text-indent: 1.5em; text-align: justify; }
+h1 + p, h2 + p, h3 + p, h4 + p, .awb-scene + p, .awb-model + p, ul + p, ol + p { text-indent: 0; }
+h1, h2 { text-align: left; font-weight: normal; line-height: 1.2; margin: 2em 0 1em 0; hyphens: none; }
+h3, h4 { font-weight: bold; margin: 1.2em 0 0.4em 0; hyphens: none; }
+.awb-scene p { text-align: center; text-indent: 0; margin: 0.8em 0; }
+.awb-model { margin: 1em 0; }
+.awb-model p { text-indent: 0; font-size: 0.95em; }
+.awb-note p { text-indent: -1.8em; margin-left: 1.8em; font-size: 0.9em; text-align: left; }
+.awb-index p { text-indent: -3.2em; margin-left: 3.2em; }
+.awb-const-title p, .awb-petition-subtitle p { text-align: center; text-indent: 0; }
+.awb-dedication p { text-indent: 0; margin-bottom: 0.5em; }
+.awb-signature-table table { border-collapse: collapse; width: 100%; font-size: 0.8em; }
+.awb-signature-table td, .awb-signature-table th { border: 1px solid black; padding: 0.2em; height: 2em; }
+a[role="doc-noteref"] { text-decoration: none; }

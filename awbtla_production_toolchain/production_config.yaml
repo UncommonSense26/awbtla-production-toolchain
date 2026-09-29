@@ -1,0 +1,88 @@
+# AWBTLA production configuration (implements the Production Control Addendum configuration).
+# Running heads are furniture: they never alter manuscript titles. expected_chapter_titles guards against a stale map.
+title: A World Brought to Light Again
+author: Justin Andre Lamoureux
+edition: First Edition
+expected_note_count: null   # read from the source; set only if Continuity §58 records a count
+required_models: [TM-01, TM-02, TM-03, TM-04, TM-05, TM-06, TM-07, TM-08, TM-09, TM-10, TM-11, TM-12, TM-13, TM-14, TM-15, TM-16, TM-17]
+formula_break_chars: 60
+print:
+  geometry: {trim_w: 7, trim_h: 10, inner: 0.875, outer: 0.625, top: 0.75, bottom: 0.75}
+  levels:
+    0: {body: [10.75, 14], notes: [8.75, 11.25]}
+    1: {body: [10.5, 13.75], notes: [8.5, 11]}
+    2: {body: [10.5, 13.75], notes: [8.5, 11], geometry: {outer: 0.5, top: 0.7, bottom: 0.7}}
+  model_text: [10, 13]
+  page_limits: {first: 540, second: 548, hard_max: 550}
+running_heads:
+  parts:
+    I: "Part I: The System We Inherited"
+    II: "Part II: Tuesday"
+    III: "Part III: Architecture"
+    IV: "Part IV: From Proposal to Polity"
+  prologue_recto: "Thirteen Months"
+  introduction_recto: "What Is Government For?"
+  constitution_verso: "Constitution of the World Peoples Union"
+  fixed: ["Legal Notice", "Preface", "Prologue", "Introduction", "Thirteen Months", "What Is Government For?", "Constitution of the World Peoples Union", "People’s Petition", "People's Petition", "Index of Formal Models", "Endnotes"]
+  chapters:
+    1: "Chapter 1: Architecture Beneath the Argument"
+    2: "Chapter 2: Rights Without Remedies"
+    3: "Chapter 3: The Consumer Is King"
+    4: "Chapter 4: The Debt Façade"
+    5: "Chapter 5: When Economic Success Becomes Economic Power"
+    6: "Chapter 6: Capitalism’s Own Tests"
+    7: "Chapter 7: What Must Not Be Lost"
+    8: "Chapter 8: Tuesday Morning"
+    9: "Chapter 9: Tuesday at Work"
+    10: "Chapter 10: Tuesday Afternoon"
+    11: "Chapter 11: Tuesday Evening"
+    12: "Chapter 12: When Something Goes Wrong"
+    13: "Chapter 13: Before Wednesday"
+    14: "Chapter 14: People Are Sovereign"
+    15: "Chapter 15: Constitutional Floor"
+    16: "Chapter 16: Contribution"
+    17: "Chapter 17: Allocation"
+    18: "Chapter 18: Merit and Trust"
+    19: "Chapter 19: Law Without a Permanent Legislature"
+    20: "Chapter 20: Administration Without a Sovereign Executive"
+    21: "Chapter 21: Justice, Petitions, and Remedies"
+    22: "Chapter 22: AI Without Sovereignty"
+    23: "Chapter 23: Production, Choice, and Innovation"
+    24: "Chapter 24: Emergency, Security, and Military Authority"
+    25: "Chapter 25: Constituent Authority and Adoption"
+    26: "Chapter 26: The Economic Transition"
+    27: "Chapter 27: Institutional Transition"
+    28: "Chapter 28: Military and Security Transition"
+    29: "Chapter 29: The First Day Is Not the Finished World"
+    30: "Chapter 30: The Threshold"
+expected_chapter_titles:
+    1: "ARCHITECTURE BENEATH THE ARGUMENT"
+    2: "RIGHTS WITHOUT REMEDIES"
+    3: "THE CONSUMER IS KING, UNTIL THE RULES ARE WRITTEN"
+    4: "THE DEBT FAÇADE"
+    5: "WHEN ECONOMIC SUCCESS BECOMES ECONOMIC POWER"
+    6: "CAPITALISM'S OWN TESTS"
+    7: "WHAT MUST NOT BE LOST"
+    8: "TUESDAY MORNING"
+    9: "TUESDAY AT WORK"
+    10: "TUESDAY AFTERNOON"
+    11: "TUESDAY EVENING"
+    12: "WHEN SOMETHING GOES WRONG"
+    13: "BEFORE WEDNESDAY"
+    14: "PEOPLE ARE SOVEREIGN"
+    15: "CONSTITUTIONAL FLOOR"
+    16: "CONTRIBUTION"
+    17: "ALLOCATION"
+    18: "MERIT AND TRUST"
+    19: "LAW WITHOUT A PERMANENT LEGISLATURE"
+    20: "ADMINISTRATION WITHOUT A SOVEREIGN EXECUTIVE"
+    21: "JUSTICE, PETITIONS, AND REMEDIES"
+    22: "AI WITHOUT SOVEREIGNTY"
+    23: "PRODUCTION, CHOICE, AND INNOVATION"
+    24: "EMERGENCY, SECURITY, AND MILITARY AUTHORITY"
+    25: "CONSTITUENT AUTHORITY AND ADOPTION"
+    26: "THE ECONOMIC TRANSITION"
+    27: "INSTITUTIONAL TRANSITION"
+    28: "MILITARY AND SECURITY TRANSITION"
+    29: "THE FIRST DAY IS NOT THE FINISHED WORLD"
+    30: "THE THRESHOLD"

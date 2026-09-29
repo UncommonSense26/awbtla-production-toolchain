@@ -1,0 +1,149 @@
+% AWBTLA production template (LuaLaTeX). Generated variables come from build.py.
+\documentclass[twoside,openany,10pt]{book}
+\pdfvariable suppressoptionalinfo 527
+\usepackage[paperwidth=$trimwidth$,paperheight=$trimheight$,inner=$inner$,outer=$outer$,top=$top$,bottom=$bottom$,headheight=11pt,headsep=0.3in,footskip=0.4in]{geometry}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+$if(fallbackfonts)$
+\setmainfont{TeX Gyre Pagella}
+\newfontfamily\awbdisplayfont{TeX Gyre Pagella}[Ligatures=TeX]
+\newfontfamily\awbsmallfont{TeX Gyre Pagella}[Ligatures=TeX]
+\setmathfont{Latin Modern Math}
+$else$
+\setmainfont{SourceSerif4}[Path=$fontdir$/,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-It,BoldFont=*-Bold,BoldItalicFont=*-BoldIt]
+\newfontfamily\awbdisplayfont{SourceSerif4Display}[Ligatures=TeX,Path=$fontdir$/,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-It,BoldFont=*-Semibold]
+\newfontfamily\awbsmallfont{SourceSerif4SmText}[Ligatures=TeX,Path=$fontdir$/,Extension=.otf,UprightFont=*-Regular,ItalicFont=*-It,BoldFont=*-Bold,BoldItalicFont=*-BoldIt]
+\setmathfont{STIXTwoMath-Regular.otf}[Path=$fontdir$/]
+$endif$
+\usepackage[protrusion=true,expansion=true,stretch=20,shrink=20,step=5,final]{microtype}
+\usepackage{graphicx,xcolor,array,tabularx,needspace,ragged2e,amsmath,mathtools,fancyhdr,emptypage,tocloft,enumitem,url}
+\usepackage[hidelinks,unicode,bookmarks=true,bookmarksopen=true,bookmarksnumbered=false,pdfdisplaydoctitle=true,pdflang={$lang$},pdftitle={$title$},pdfauthor={$author$}]{hyperref}
+\urlstyle{same}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\makeatletter
+% ---------- sizes ----------
+\renewcommand\normalsize{\fontsize{$bodysize$}{$bodylead$}\selectfont\abovedisplayskip 7pt plus 2pt\belowdisplayskip 7pt plus 2pt\abovedisplayshortskip 4pt\belowdisplayshortskip 4pt}
+\normalsize
+\newcommand\awbnotefont{\awbsmallfont\fontsize{$notesize$}{$notelead$}\selectfont}
+\newcommand\awbmodelfont{\fontsize{$modelsize$}{$modellead$}\selectfont}
+\newcommand\awbheadfont{\awbsmallfont\fontsize{8.5}{10}\selectfont\addfontfeatures{LetterSpace=4}}
+\newcommand\awbtablefont{\awbsmallfont\fontsize{7.5}{9}\selectfont}
+% ---------- paragraph, hyphenation, widows ----------
+\setlength{\parindent}{1.5em}\setlength{\parskip}{0pt}
+\raggedbottom
+\widowpenalty=10000 \clubpenalty=10000 \displaywidowpenalty=10000 \brokenpenalty=10000
+\hyphenpenalty=700 \exhyphenpenalty=700 \doublehyphendemerits=900000 \finalhyphendemerits=900000 \uchyph=0
+\pretolerance=200 \tolerance=800 \emergencystretch=2em \hfuzz=0.5pt
+\lefthyphenmin=3 \righthyphenmin=3
+\AtBeginDocument{\lefthyphenmin=3 \righthyphenmin=3}
+\newcommand\awbnohyph{\hyphenpenalty=10000 \exhyphenpenalty=10000 \raggedright\noindent}
+% ---------- running heads and folios ----------
+\newsavebox\awbheadbox
+\newcommand\awbhead[1]{\sbox\awbheadbox{\awbheadfont #1}\ifdim\wd\awbheadbox>\textwidth\typeout{AWB-HEAD-OVERFLOW: page \thepage}\fi\usebox\awbheadbox}
+\newcommand\awbfolio[1]{{\awbsmallfont\fontsize{9}{10}\selectfont #1}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[CE]{\awbhead{\leftmark}}\fancyhead[CO]{\awbhead{\rightmark}}
+\fancyfoot[LE,RO]{\awbfolio{\thepage}}
+\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{awbopening}{\fancyhf{}\fancyfoot[C]{\awbfolio{\thepage}}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\awbfolio{\thepage}}}
+% ---------- contents ----------
+\renewcommand\cftpartfont{\awbnohyph\bfseries}\renewcommand\cftpartpagefont{\bfseries}
+\renewcommand\cftchapfont{\awbnohyph\mdseries}\renewcommand\cftchappagefont{\mdseries}
+\renewcommand\cftchapleader{\cftdotfill{\cftdotsep}}
+\setlength\cftbeforepartskip{8pt}\setlength\cftbeforechapskip{2pt}
+\setlength\cftchapindent{1.2em}\setlength\cftchapnumwidth{0pt}
+\renewcommand\cfttoctitlefont{\awbdisplayfont\fontsize{22}{26}\selectfont}
+\newcommand\awbtocspecial[1]{\addtocontents{toc}{\protect\contentsline{part}{#1}{\thepage}{}}}
+\newcommand\awbtocchapter[2]{\addtocontents{toc}{\protect\contentsline{chapter}{#1\enspace #2}{\thepage}{}}}
+% ---------- structure ----------
+\newcounter{awbbm}
+\newcommand\awbbookmark[2]{\stepcounter{awbbm}\pdfbookmark[#1]{#2}{awbbm.\theawbbm}}
+\newcommand\awbopen[1]{\def\awbtmp{#1}\def\awbnextstr{next}\ifx\awbtmp\awbnextstr\clearpage\else\cleardoublepage\fi}
+\newif\ifawbmainstarted
+\newcommand\awbSpecial[8]{% open kind label title verso recto bookmark id
+  \def\awbkind{#2}\def\awblegal{legal}\def\awbded{dedication}\def\awbnotes{notes}\def\awbidx{index}
+  \ifx\awbkind\awblegal\ifawbmainstarted\else\mainmatter\global\awbmainstartedtrue\fi\fi
+  \awbopen{#1}
+  \ifx\awbkind\awbded\thispagestyle{empty}\pagestyle{empty}\else\thispagestyle{awbopening}\fi
+  \markboth{#5}{#6}\awbbookmark{0}{#7}\hypertarget{#8}{}\awbtocspecial{#4}%
+  \vspace*{0.9in}{\awbnohyph\awbdisplayfont
+  \if\relax\detokenize{#3}\relax\else{\fontsize{11}{14}\selectfont\addfontfeatures{LetterSpace=8}#3\par}\vspace{8pt}\fi
+  {\fontsize{21}{25}\selectfont #4\par}}\vspace{0.45in}%
+  \ifx\awbkind\awbnotes\awbnotefont\fi
+  \@afterindentfalse\@afterheading}
+\newcommand\awbPart[4]{% title verso bookmark id
+  \cleardoublepage\thispagestyle{empty}\markboth{#2}{#2}\awbbookmark{0}{#3}\hypertarget{#4}{}\awbtocspecial{#1}%
+  \vspace*{2.4in}{\centering\awbnohyph\awbdisplayfont\fontsize{26}{32}\selectfont #1\par}%
+  \clearpage\thispagestyle{empty}\null\clearpage}
+\newcommand\awbChapter[6]{% label title verso recto bookmark id
+  \clearpage\thispagestyle{awbopening}\markboth{#3}{#4}\awbbookmark{1}{#5}\hypertarget{#6}{}\awbtocchapter{#1}{#2}%
+  \vspace*{0.9in}{\awbnohyph\awbdisplayfont{\fontsize{11}{14}\selectfont\addfontfeatures{LetterSpace=8}#1\par}\vspace{8pt}{\fontsize{21}{25}\selectfont #2\par}}\vspace{0.45in}%
+  \@afterindentfalse\@afterheading}
+\newcommand\awbArticle[4]{% label title recto bookmark
+  \par\needspace{6\baselineskip}\addvspace{14pt}\markright{#3}\awbbookmark{1}{#4}%
+  {\awbnohyph\bfseries\if\relax\detokenize{#1}\relax\else #1\\\fi #2\par}\nobreak\vspace{6pt}\@afterindentfalse\@afterheading}
+\newcommand\awbSubhead[2]{\par\needspace{5\baselineskip}\addvspace{12pt}{\awbnohyph\bfseries #2\par}\nobreak\vspace{4pt}\@afterindentfalse\@afterheading}
+\newcommand\awbNoteSection[1]{\par\needspace{4\baselineskip}\addvspace{10pt}{\normalsize\awbnohyph\bfseries #1\par}\nobreak\vspace{3pt}\awbnotefont\@afterindentfalse\@afterheading}
+\newcommand\awbConstTitle[1]{\par{\centering\awbnohyph\bfseries #1\par}\vspace{8pt}\@afterindentfalse\@afterheading}
+\newcommand\awbPetitionSubtitle[1]{\par{\centering\awbnohyph\itshape #1\par}\vspace{10pt}\@afterindentfalse\@afterheading}
+\newcommand\awbscene{\par\addvspace{6pt}{\centering *\enspace*\enspace*\par}\addvspace{6pt}\@afterindentfalse\@afterheading}
+\newcommand\awbblank[1]{\rule[-0.3ex]{\dimexpr #1\dimexpr 0.42em\relax\relax}{0.4pt}}
+% ---------- notes ----------
+\newcommand\awbref[1]{\hypertarget{ref-#1}{}\hyperlink{note-#1}{\textsuperscript{#1}}}
+\newcommand\awbnote[2]{\par{\awbnotefont\RaggedRight\setlength\parindent{0pt}\hangindent=1.8em\hangafter=1\noindent\hypertarget{note-#1}{}\hyperlink{ref-#1}{#1.}\enspace #2\par}}
+% ---------- formulas and formal models ----------
+\newsavebox\awbmathbox
+\newcommand\awbdisplay[1]{\par\addvspace{6pt}\noindent
+  \sbox\awbmathbox{$$\displaystyle #1$$}%
+  \ifdim\wd\awbmathbox>\linewidth
+    \ifdim 0.9\wd\awbmathbox>\linewidth
+      \typeout{AWB-FORMULA-OVERFLOW: width \the\wd\awbmathbox\space exceeds measure \the\linewidth\space at scale 0.9}%
+      \makebox[\linewidth][c]{\scalebox{0.9}{\usebox\awbmathbox}}%
+    \else
+      \typeout{AWB-FORMULA-SCALED: width \the\wd\awbmathbox}%
+      \makebox[\linewidth][c]{\resizebox{\linewidth}{!}{\usebox\awbmathbox}}%
+    \fi
+  \else\makebox[\linewidth][c]{\usebox\awbmathbox}\fi
+  \par\addvspace{6pt}}
+\newenvironment{awbmodel}{\par\addvspace{10pt}\noindent\begin{minipage}{\linewidth}\setlength\parindent{0pt}\setlength\parskip{3pt}}{\end{minipage}\par\addvspace{10pt}\@afterindentfalse\@afterheading}
+\newcommand\awbmodelkey{\awbmodelfont\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}}
+% ---------- index, dedication, signature table ----------
+\newenvironment{awbindex}{\par\setlength\parindent{0pt}\everypar{\hangindent=3.2em\hangafter=1}}{\par}
+\newenvironment{awbdedication}{\par\vspace*{0.4in}\setlength\parindent{0pt}\setlength\parskip{6pt}}{\par}
+\newcommand\awbrowstrut{\rule{0pt}{0.33in}}
+\newcolumntype{N}{>{\centering\arraybackslash}p{0.28in}}
+\newcolumntype{W}{>{\RaggedRight\arraybackslash}X}
+\newcolumntype{D}{>{\RaggedRight\arraybackslash}p{0.55in}}
+\newcolumntype{Q}{>{\RaggedRight\arraybackslash}p{0.95in}}
+\newcommand\awbSigBegin{\par\addvspace{6pt}\noindent\begingroup\awbtablefont\setlength\tabcolsep{2.5pt}\renewcommand\arraystretch{1.1}}
+\newcommand\awbSigEnd{\endgroup\par\addvspace{6pt}}
+\makeatother
+\begin{document}
+\frontmatter
+\pagestyle{empty}
+% half-title (recto)
+\thispagestyle{empty}\vspace*{2.6in}{\centering\awbdisplayfont\fontsize{20}{24}\selectfont $title$\par}
+$if(synthetic)$\vspace{0.5in}{\centering\awbsmallfont\fontsize{9}{11}\selectfont SYNTHETIC TEST BUILD: NOT A PRODUCTION ARTIFACT$if(fallbackfonts)$\\ FALLBACK FONTS IN USE$endif$\par}$endif$
+\clearpage\thispagestyle{empty}\null\clearpage
+% title page (recto)
+\thispagestyle{empty}\vspace*{2.2in}{\centering\awbdisplayfont\fontsize{28}{34}\selectfont $title$\par\vspace{0.5in}\fontsize{15}{18}\selectfont $author$\par}
+\clearpage
+% copyright page (verso)
+\thispagestyle{empty}\vspace*{\fill}{\awbsmallfont\fontsize{9}{12}\selectfont\setlength\parindent{0pt}\setlength\parskip{6pt}\RaggedRight
+$title$\par
+Copyright © $copyrightyear$ $author$\par
+All rights reserved. No part of this book may be reproduced in any form without written permission from the copyright owner, except for brief quotations in reviews, scholarship, criticism, or commentary.\par
+$publisherline$\par
+$edition$\par
+$for(isbnlines)$ISBN $isbnlines.isbn$ ($isbnlines.format$)\\
+$endfor$
+The Legal Notice that follows describes the nature of this work and the limits of what it claims.\par
+$if(synthetic)$SYNTHETIC TEST BUILD: NOT A PRODUCTION ARTIFACT\par$endif$}
+\clearpage
+\pagestyle{fancy}
+\cleardoublepage
+\awbbookmark{0}{Contents}
+\tableofcontents
+$body$
+\end{document}
