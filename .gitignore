@@ -6,3 +6,35 @@ awbtla_production_toolchain/vendor/epubcheck/*
 !awbtla_production_toolchain/vendor/epubcheck/README.txt
 AWBTLA_PRODUCTION_BUILD_*/
 *.QA-FAILED
+
+# Security and privacy exclusions added when persisting to GitHub (2026-09-29).
+# Local production metadata (real ISBNs, prices, imprint); only the template is tracked.
+publication_metadata.yaml
+# Manuscript masters and private control records must never be committed.
+AWBTLA_*MASTER*.md
+AWBTLA_*MASTER*.docx
+# Generated production artifacts and manifests.
+*.pdf
+*.epub
+*.docx
+*.QA-FAILED*
+AWBTLA_PRODUCTION_MANIFEST.*
+AWBTLA_PRODUCTION_BUILD*/
+# TeX temporaries.
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+# Caches, build directories, and local secrets.
+.cache/
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+.env
+.env.*
+.DS_Store
